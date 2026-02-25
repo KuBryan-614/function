@@ -1,0 +1,44 @@
+# =====================================
+# Discord 模塊配置 (版本 1.0)
+# 注意: 配置鍵使用英文，方便國際化
+# =====================================
+
+# ========= 基本設置 =========
+enabled: true                          # 是否啟用 Discord 模組
+bot_token: "YOUR_BOT_TOKEN_HERE"      # Discord 機器人令牌，請勿公開
+guild_id: "YOUR_GUILD_ID_HERE"        # Discord 伺服器 ID (Guild ID)
+channel_id: "YOUR_CHANNEL_ID_HERE"    # 主聊天頻道 ID (雙向聊天)
+console_channel_id: ""                 # 控制台頻道 ID，可選，留空則禁用
+prefix: "!"                            # Discord 指令前綴
+embed_color: "#3498db"                 # 嵌入消息顏色 (十六進制)
+message_max_length: 1500               # 消息最大長度，避免過長訊息
+
+# ========= 聊天格式 =========
+chat_format:
+  minecraft: "&9[Discord] &b%user%&f: %message%"   # Discord -> Minecraft
+  discord: "`[%world%]` **%player%**: %message%"  # Minecraft -> Discord
+
+# ========= 事件開關 =========
+# 控制哪些事件會同步到 Discord
+events:
+  player_join: true     # 玩家加入
+  player_quit: true     # 玩家離開
+  player_chat: true     # 玩家聊天
+  player_death: true    # 玩家死亡
+  server_start: true    # 伺服器啟動
+  server_stop: true     # 伺服器關閉
+
+# ========= 權限設定 =========
+# 允許執行管理指令的 Discord 角色名稱 (完全匹配)
+allowed_roles:
+  - "管理員"
+  - "管理組"
+
+# ========= 允許的指令 =========
+# 可以從 Discord 執行的 Minecraft 指令列表
+allowed_commands:
+  - "list"
+  - "online"
+  - "help"
+  - "say"
+  - "time"

@@ -1,0 +1,25 @@
+# 右键采收配置 - 简化版
+# 启用/禁用模块
+enabled: true
+
+# 是否显示消息（如农作物未成熟）
+show-message: true
+
+# 调试模式
+debug: false
+
+# 支持的农作物列表
+crops:
+  - WHEAT
+  - POTATOES
+  - CARROTS
+  - BEETROOTS
+  - NETHER_WART
+  - COCOA
+  - SWEET_BERRY_BUSH
+
+# 是否自动重新种植
+auto-replant: true
+
+# 是否掉落物品
+drop-items: true

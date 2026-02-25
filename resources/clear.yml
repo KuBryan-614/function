@@ -1,0 +1,272 @@
+# ============================================
+#            清理掉落物模塊設定檔
+#            Clear Lag Module Config
+#        版本: 1.0.0 - 獨立配置文件
+# ============================================
+
+# 🧹 基本設定
+basic:
+  enabled: true              # 模組啟用狀態：主開關
+  clean-interval: 900        # 清理間隔：秒（5分鐘）
+  countdown-time: 10         # 倒計時時間：秒（清理前倒數）
+  show-actionbar: true       # 顯示動作欄：在物品欄上方顯示倒計時
+  broadcast-messages: false   # 廣播訊息：清理時發送遊戲內廣播
+
+# 🔒 物品保護設定
+protection:
+  protect-named-items: true      # 保護命名物品：不清理有自定義名稱的物品
+  protect-enchanted-items: true  # 保護附魔物品：不清理有附魔的物品
+  min-items-to-clear: 50           # 最小清理數量：物品數量少於此值則不清理
+  max-clear-per-cycle: 0          # 每輪最大清理量：0表示無限制
+
+# 💬 消息格式設定
+messages:
+  # 系統前綴設定
+  prefix:
+    enabled: true                 # 啟用前綴顯示
+    format: "|系統| 垃圾車: "     # 前綴格式
+    colors:
+      bracket: "&6"               # 括號顏色
+      system: "&e"                # 系統文字顏色
+      colon: "&7"                 # 冒號顏色
+
+  # 消息顏色設定
+  colors:
+    info: "&e"                    # 一般信息消息顏色
+    success: "&a"                 # 成功消息顏色
+    warning: "&c"                 # 警告消息顏色
+    error: "&4"                   # 錯誤消息顏色
+    highlight: "&6"               # 高亮文字顏色
+    number: "&b"                  # 數字顏色
+
+  # 具體消息內容
+  content:
+    # 啟用/禁用消息
+    enabled: "&a✓ &e清理掉落物模塊已啟用！"
+    disabled: "&c✗ &e清理掉落物模塊已停用！"
+    reloaded: "&a✓ &e配置已重載！"
+
+    # 清理消息
+    starting: "&c⚠ &e將在 {time}&e 秒後清理掉落物！"
+    countdown: "&c清理倒計時: {time}秒"
+    cleared: "&a✓ &e已清理 {count}&e 個掉落物！"
+    manual-clear: "&e管理員手動啟動了清理程序..."
+
+    # 命令反饋
+    no-permission: "&c你沒有權限使用此命令！"
+    player-only: "&c只有玩家可以使用此命令！"
+    invalid-number: "&c請輸入有效的數字！"
+    interval-too-short: "&c清理間隔不能小於10秒！"
+    countdown-too-short: "&c倒計時時間不能小於1秒！"
+    notification-on: "&e掉落物清理提示已&a開啟"
+    notification-off: "&e掉落物清理提示已&c關閉"
+
+    # 測試消息
+    test-countdown: "&e測試倒計時功能..."
+    test-countdown-started: "&a倒計時測試已啟動！"
+    test-actionbar: "&e測試ActionBar功能..."
+    test-actionbar-sent: "&aActionBar測試已發送！"
+    test-actionbar-disabled: "&eActionBar功能已停用"
+    test-clear: "&e測試清理功能..."
+    test-clear-complete: "&a清理測試已完成！"
+    test-invalid-type: "&c未知的測試類型！"
+
+# ⚙️ 指令設定
+commands:
+  # 指令別名
+  aliases:
+    - "clearlag"
+    - "cl"
+    - "lagclear"
+
+  # 指令權限
+  permissions:
+    use: "kuku.clearlag.use"               # 基礎使用權限
+    admin: "kuku.clearlag.admin"           # 管理員權限
+    settings: "kuku.clearlag.settings"     # 設定修改權限
+
+  # 指令說明
+  descriptions:
+    help: "顯示清理掉落物模塊幫助"
+    now: "立即清理掉落物"
+    status: "查看模塊狀態"
+    toggle: "開關個人清理提示"
+    reload: "重載模塊配置"
+    setinterval: "設定清理間隔時間"
+    setcountdown: "設定清理倒數時間"
+    test: "測試模塊功能"
+
+# 🔄 自動保存設定
+auto-save:
+  enabled: true                 # 啟用自動保存
+  interval: 300                 # 保存間隔（秒）
+  backup: true                  # 啟用備份
+  backup-count: 5               # 保留備份數量
+
+# 📊 統計記錄
+statistics:
+  enabled: true                 # 啟用統計記錄
+  log-clears: true              # 記錄清理次數
+  log-items-cleared: true       # 記錄清理物品數量
+  log-player-notifications: true # 記錄玩家提示設定
+  save-interval: 3600           # 保存間隔（秒）
+
+# 🎨 ActionBar 設定
+actionbar:
+  enabled: true                 # 啟用ActionBar顯示
+  position: "BOTTOM"           # 顯示位置：TOP, BOTTOM
+  animation: true              # 啟用動畫效果
+  progress-bar: true           # 顯示進度條
+  progress-bar-length: 20      # 進度條長度
+  progress-bar-filled: "█"     # 進度條填充字符
+  progress-bar-empty: "░"      # 進度條空白字符
+
+  # 進度條顏色
+  colors:
+    high: "&a"                 # 高（剩餘時間多）
+    medium: "&e"               # 中
+    low: "&c"                  # 低（剩餘時間少）
+
+  # 文本格式
+  format:
+    countdown: "&e清理倒計時: {time-color}{time}&e秒 {progress-bar}"
+    testing: "&a✓ &e清理掉落物ActionBar測試"
+
+# 🎯 性能優化
+performance:
+  check-interval: 20           # 檢查間隔（刻）
+  async-operations: true       # 啟用異步操作
+  chunk-load-optimization: true # 區塊載入優化
+  entity-scan-limit: 1000      # 實體掃描限制
+  batch-processing: true       # 批次處理
+  batch-size: 50              # 每批處理數量
+
+# 📝 日誌設定
+logging:
+  level: "INFO"               # 日誌等級
+  file: true                  # 寫入文件
+  console: true               # 控制台輸出
+  format: "[%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS] [%2$s] %3$s"
+
+  # 日誌類別
+  categories:
+    commands: true            # 記錄命令使用
+    clears: true              # 記錄清理事件
+    errors: true              # 記錄錯誤
+    warnings: true            # 記錄警告
+
+# 💡 提示訊息
+hints:
+  enabled: true               # 啟用提示訊息
+  first-join: true            # 首次加入提示
+  interval: 3600              # 提示間隔（秒）
+
+  # 提示內容
+  messages:
+    - "&e提示: 使用 &6/clearlag toggle &e可以開關個人清理提示"
+    - "&e提示: 管理員可以使用 &6/clearlag now &e立即清理掉落物"
+    - "&e提示: 命名和附魔的物品不會被自動清理"
+    - "&e提示: 清理倒計時會顯示在物品欄上方"
+
+# ============================================
+#            🚀 進階設定
+# ============================================
+
+# 🌍 世界特定設定
+world-settings:
+  # 預設設定（套用於所有世界）
+  default:
+    enabled: true
+    clean-interval: 300
+    countdown-time: 10
+
+  # 世界特定設定（可為不同世界設定不同值）
+  worlds:
+    world:
+      enabled: true
+      clean-interval: 300
+    world_nether:
+      enabled: false          # 地獄不清理
+    world_the_end:
+      enabled: true
+      clean-interval: 600     # 終界每10分鐘清理一次
+
+# 🎮 玩家特定設定
+player-settings:
+  # 預設玩家設定
+  default:
+    notifications: true       # 預設開啟提示
+
+  # VIP玩家設定（示例）
+  vip:
+    permissions:
+      - "kuku.clearlag.vip"
+    settings:
+      notifications: true
+      protection: true       # VIP物品保護
+
+# 🔧 開發者設定
+developer:
+  debug: false               # 除錯模式
+  verbose-logging: false     # 詳細日誌
+  test-mode: false           # 測試模式
+  mock-items: 100           # 測試時模擬物品數量
+
+  # 性能監控
+  performance-monitoring: false
+  memory-check: false
+  gc-timing: false
+
+# ============================================
+#            💡 使用說明
+# ============================================
+#
+# 📖 配置說明：
+#
+# 1. 基本設定 (basic):
+#    - enabled: 總開關，控制模塊是否啟用
+#    - clean-interval: 清理間隔，單位為秒
+#    - countdown-time: 清理前倒數時間
+#    - show-actionbar: 是否在物品欄上方顯示倒計時
+#    - broadcast-messages: 是否廣播清理消息
+#
+# 2. 物品保護 (protection):
+#    - protect-named-items: 保護有自定義名稱的物品
+#    - protect-enchanted-items: 保護有附魔的物品
+#    - min-items-to-clear: 最小清理數量，少於此數量的堆疊不被清理
+#    - max-clear-per-cycle: 每輪最大清理數量，0表示無限制
+#
+# 3. 消息格式 (messages):
+#    - prefix: 系統消息前綴設定
+#    - colors: 各種消息的顏色設定
+#    - content: 具體消息內容，可用 {變數} 格式化
+#
+# 4. 指令設定 (commands):
+#    - aliases: 指令別名
+#    - permissions: 權限節點
+#    - descriptions: 指令說明
+#
+# 5. ActionBar設定 (actionbar):
+#    - enabled: 是否啟用ActionBar顯示
+#    - position: 顯示位置
+#    - progress-bar: 進度條相關設定
+#
+# 6. 世界特定設定 (world-settings):
+#    - 可為不同世界設定不同的清理規則
+#
+# ⚠️ 注意事項：
+#
+# 1. 修改設定後需要使用 /clearlag reload 重載配置
+# 2. 部分設定需要重啟插件才能生效
+# 3. 建議修改前先備份配置文件
+# 4. 顏色代碼使用 & 符號（如 &a 為綠色）
+# 5. 時間單位：秒（清理間隔），刻（性能檢查間隔）
+#
+# 🔧 故障排除：
+#
+# 1. 如果模塊不工作，檢查 enabled 是否為 true
+# 2. 如果沒有消息，檢查 broadcast-messages 是否為 true
+# 3. 如果ActionBar不顯示，檢查 show-actionbar 是否為 true
+# 4. 查看日誌文件獲取更多信息
+#
+# ============================================

@@ -1,0 +1,25 @@
+# 黏液球合成模块配置
+enabled: false
+debug: false
+
+# 合成配方设置
+recipes:
+  # 雪球 -> 压缩雪球
+  snowball-to-compressed:
+    enabled: true
+    output-amount: 1
+
+  # 压缩雪球 -> 史莱姆核心
+  compressed-to-core:
+    enabled: true
+    output-amount: 1
+
+  # 糖 + 史莱姆核心 + 绿色染料 -> 黏液球
+  slimeball:
+    enabled: true
+    output-amount: 1
+
+  # 黏液块分解
+  decompose:
+    enabled: true
+    output-amount: 9

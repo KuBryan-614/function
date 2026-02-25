@@ -1,0 +1,82 @@
+# KukuFunction - 加入模塊配置文件
+# 版本: 1.21.10
+
+# 是否啟用整個加入模塊
+enabled: true
+
+# 功能模塊開關
+modules:
+  welcome-message:
+    enabled: true
+    description: "公共加入消息"
+
+  quit-message:
+    enabled: true
+    description: "公共退出消息"
+
+  personal-welcome:
+    enabled: true
+    description: "個人歡迎消息"
+
+  first-join:
+    enabled: true
+    description: "首次加入特別提示"
+
+  sound-effects:
+    enabled: true
+    description: "音效效果"
+
+# 消息配置
+messages:
+  # 公共加入消息（全服可見）
+  join: "&8|&6系統&8| &a[+] &f{player} 加入了遊戲"
+
+  # 公共退出消息（全服可見）
+  quit: "&8|&6系統&8| &c[-] &f{player} 離開了遊戲"
+
+  # 個人歡迎消息（只有該玩家能看到）
+  personal-welcome:
+  - "&f歡迎來到伺服器!"
+  - "&7當前在線: &f{online}&7/&f{max} 玩家"
+  - "&7世界: &f{world}"
+  - "&7使用§e蹲下 + F键 §7可以打开輔助菜单"
+
+  # 首次加入特別提示
+  first-join:
+    - "&a✦ &f&l歡迎新玩家!"
+    - "&7這是你第一次加入本伺服器"
+    - "&7使用§e蹲下 + F键 §7可以打开帮助菜单"
+
+# 延遲配置
+# 單位: tick (20 tick = 1秒)
+delays:
+  personal-welcome: 20    # 個人歡迎消息延遲
+  first-join: 40          # 首次加入提示延遲
+
+# 音效配置
+sounds:
+  # 首次加入音效
+  first-join:
+    enabled: true
+    type: "ENTITY_PLAYER_LEVELUP"
+    volume: 1.0
+    pitch: 1.0
+    description: "玩家首次加入時播放的音效"
+
+  # 普通加入音效
+  welcome:
+    enabled: false
+    type: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    volume: 0.5
+    pitch: 1.2
+    description: "玩家每次加入時播放的音效"
+
+# 佔位符說明
+placeholders:
+  - "可用的佔位符:"
+  - "  {player} - 玩家名稱"
+  - "  {online} - 當前在線玩家數"
+  - "  {max} - 伺服器最大玩家數"
+  - "  {world} - 世界名稱"
+  - "  {time} - 當前時間"
+  - "  {date} - 當前日期"

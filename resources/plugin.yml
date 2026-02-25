@@ -1,0 +1,187 @@
+name: KukuFunction
+main: kuku.plugin.function.FunctionPlugin
+version: 'v8.1'
+api-version: '1.21'
+author: Kuku
+description: 功能插件
+website: https://example.com
+
+# 資源文件
+load: POSTWORLD
+loadbefore: []
+depend: []
+softdepend: []
+
+# 資源文件配置
+library-loader: REMAP
+folia-supported: true
+
+# 命令
+commands:
+  kuku:
+    description: "KukuFunction 插件主命令"
+    usage: "/kuku <reload|help>"
+    permission: kuku.plugin.command
+    aliases: ["kf", "kukufunc"]
+
+  kb:
+    description: Kuku插件主命令
+    usage: /<command> <subcommand>
+    aliases: [kukubackup]
+    permission: kuku.command.use
+    permission-message: 你沒有權限使用此命令！
+
+  music:
+    description: 音樂系統
+    usage: /music
+
+  auto destroy:
+    description: 管理自動破壞器
+    usage: /<command> [reload|list]
+    permission: kuku.autodestroy.admin
+    permission-message: 你沒有權限使用此指令
+
+  nc:
+    description: "計算地獄座標"
+    usage: "/nc"
+    permission: kuku.command.nc
+    aliases: ["nethercalc", "nethercoords"]
+
+  seed:
+    description: 查看当前世界的种子码
+    usage: /<command>
+    aliases: [ worldseed, 种子, seedcode ]
+
+  discord:
+    description: Discord 模塊管理指令
+    usage: /discord [reload|status|send|broadcast|help]
+    permission: kuku.command.discord
+
+  testelevator:
+    description: 測試電梯功能
+    usage: /testelevator
+
+  ktps:
+    description: 查看服务器TPS和性能信息
+    usage: /<command>
+    aliases: [tps, lag]
+    permission: kuku.command.tps
+    permission-message: "§c您没有权限使用此命令！"
+
+  exp:
+    description: "經驗系統主指令"
+    usage: "/exp [help|balance|convert]"
+    aliases: ["經驗", "experience"]
+    permission: kuku.command.exp
+
+  collect:
+    description: "從儲存中取出經驗"
+    usage: "/collect exp <等級|all|max>"
+    aliases: ["取出經驗", "取經驗", "withdrawexp"]
+    permission: kuku.command.collect
+
+  input:
+    description: "存入經驗到儲存"
+    usage: "/input exp <等級|all|half|quarter>"
+    aliases: ["存入經驗", "存經驗", "depositexp"]
+    permission: kuku.command.input
+
+  clearlag:
+    description: ClearLag插件主命令
+    usage: /<command> [reload|now|toggle|status|help]
+    aliases: [ cl, lagclear ]
+    permission: clearlag.use
+
+  harvester:
+    description: 采收工具相关命令
+    usage: /<command>
+
+# 權限
+permissions:
+  kuku.plugin.command:
+    description: "允許使用 /kuku 指令"
+    default: op
+
+  kuku.plugin.reload:
+    description: "允許重載插件配置"
+    default: op
+
+  kuku.plugin.bypass:
+    description: "繞過插件限制"
+    default: op
+
+  kuku.chest.bypass:
+    description: "繞過儲物箱限制"
+    default: op
+
+  kuku.sort.use:
+    description: "使用物品整理功能"
+    default: true
+
+  kuku.scoreboard.see:
+    description: "查看計分板"
+    default: true
+
+  kuku.command.seed:
+    description: 允许使用 /seed 命令
+    default: true  # 所有玩家默认拥有此权限
+
+  kuku.rightharvest.use:
+    description: 允许使用右键采收功能
+    default: true
+
+  kuku.command.nc:
+    description: "允許使用 /nc 指令"
+    default: true
+
+  kuku.backups.use:
+    description: 允許使用備份系統
+    default: true
+
+  kuku.backups.admin:
+    description: 允許管理備份系統
+    default: op
+
+  kuku.command.discord:
+    description: 允許使用 Discord 相關指令
+    default: op
+
+  kuku.discord.admin:
+    description: 允許使用 Discord 管理員指令
+    default: op
+
+  kuku.clearlag.use:
+    description: 允许使用清理掉落物基础命令
+    default: true
+
+  kuku.clearlag.admin:
+    description: 允许使用清理掉落物管理员命令
+    default: op
+
+  kuku.clearlag.setting:
+    description: 允许修改清理掉落物设置
+    default: op
+
+  kuku.helpgui.use:
+    description: 允许使用帮助GUI命令
+    default: true
+
+  kuku.helpgui.admin:
+    description: 帮助GUI管理员权限
+    default: op
+
+  kuku.command.exp:
+    description: "允許使用經驗指令"
+    default: true
+
+  kuku.command.collect:
+    description: "允許使用取經驗指令"
+    default: true
+
+  kuku.command.input:
+    description: "允許使用存經驗指令"
+    default: true
+
+  kuku.command.ktps:
+    description: 查看TPS
+    default: true

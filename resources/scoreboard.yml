@@ -1,0 +1,57 @@
+# KukuFunction - 計分板模塊配置文件
+# 版本: 1.21.10
+
+# 是否啟用整個計分板模塊
+enabled: true
+
+# 更新間隔（單位：tick，20 tick = 1秒）
+# 建議設置為 1 以獲得實時更新
+update-interval: 1  # 修改為 1
+
+# 世界設置
+worlds:
+  # 是否在所有世界顯示計分板
+  all-worlds: true
+
+  # 世界白名單（當 all-worlds 為 false 時生效）
+  whitelist:
+    - "world"
+    - "world_nether"
+    - "world_the_end"
+
+# 計分板標題
+title: "&6&l玩家資訊"
+
+# 標題更新間隔（僅用於動畫）
+title-update-interval: 100
+
+# 計分板內容（從下往上顯示）
+lines:
+  - "&7玩家: &f{player}"
+  - "&7所在生態域: &f{biome}"
+  - "&a══════════"
+  - "&7世界: &f{world}"
+  - "&7座標: &f{x} &8| &f{y} &8| &f{z}"
+  - "&b══════════"
+  - "&7在線: &f{online}/{max}"
+  - "&7延遲: &f{ping}"
+  - "&f{time}"
+  - "&c══════════"
+  - "&7血量: &f{health} ❤"
+  - "&7飽食: &f{food} 🍖"
+  - "&7TPS: &f{tps}"
+
+# 動畫設置
+animations:
+  enabled: true
+
+  # 標題動畫幀
+  title:
+    frames:
+      - "&6&l伺服器資訊"
+      - "&6&l伺服器資訊"
+      - "&6&l伺服器資訊"
+      - "&6&l伺服器資訊"
+
+    # 幀切換間隔（tick）
+    interval: 10

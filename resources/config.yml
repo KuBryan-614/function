@@ -1,0 +1,379 @@
+# ============================================
+#            Kuku Function Plugin
+#                設定檔案
+#        版本: 1.21.10 - 模塊化功能插件
+# ============================================
+
+# ==================== 基本設定 ====================
+
+# 除錯模式
+# 啟用後會在控制台顯示詳細的除錯資訊
+# 用於故障排除和開發測試
+settings:
+  debug: false
+
+  # 語言設定
+  # 支援的語言代碼：
+  #   zh_TW - 繁體中文
+  language: zh_TW
+
+  # 自動更新檢查
+  # 啟用後插件會自動檢查新版本
+  # 注意：需要網路連線
+  auto-update: false
+
+# ==================== 功能模組設定 ====================
+# 控制各個功能模組的啟用/停用狀態
+
+modules:
+  join: true
+  scoreboard: true
+  chest: true
+  nc: true
+  totel: true
+  discord: true
+  elevator: true
+  halfslab: true
+  clearlag: true
+  rightclick: true
+  seed: true
+  easybox: true
+  slimecraft: true
+  music: true
+  helpgui: true
+  backups: false
+  exp: true
+
+# ==================== 日誌系統設定 ====================
+# 控制日誌記錄的行為和輸出方式
+
+logging:
+  # 日誌等級
+  # 可選值：SEVERE | WARNING | INFO | CONFIG | FINE | FINER | FINEST
+  # INFO 級別會記錄一般操作，FINE 級別會記錄更多細節
+  level: INFO
+
+  # 檔案記錄
+  # 啟用後會將日誌寫入到 logs/ 資料夾中
+  # 方便日後查閱和分析
+  file: true
+
+  # 控制台輸出
+  # 啟用後會在伺服器控制台顯示日誌訊息
+  # 建議保持啟用以監控插件運行狀態
+  console: true
+
+# ==================== 儲物箱模組詳細設定 ====================
+# 這些設定專門控制儲物箱模組的各種功能
+
+chest:
+  # 模組啟用狀態
+  # 主開關，控制整個儲物箱模組是否運行
+  enabled: true
+
+  # 允許上方有方塊時開啟
+  # 核心功能：允許開啟被完整方塊覆蓋的容器
+  # 例如：上方有泥土、石頭等方塊時仍可開啟儲物箱
+  allowOpenWithBlockAbove: true
+
+  # 允許在潛行時強制開啟容器
+  # 重要：設為 false 時，玩家潛行右鍵箱子會優先放置方塊而不是強制開啟箱子
+  # 建議設為 false 以確保玩家可以正常放置漏斗等方塊
+  allowOpenWhenSneaking: false
+
+  # 允許界伏盒
+  # 控制是否對界伏盒套用上方方塊開啟功能
+  # 界伏盒是特殊的可移動容器
+  allowShulkerBoxes: true
+
+  # 處理雙儲物箱
+  # 啟用後會特別處理相連的雙儲物箱
+  # 確保兩個相連的儲物箱都能正確開啟
+  handleDoubleChests: true
+
+  # 包含特殊容器
+  # 控制是否對特殊容器套用功能：
+  # 蜂箱、蜂窩、重生錨、飾紋陶罐、銅燈泡等
+  includeSpecialContainers: true
+
+  # 包含工作站容器
+  # 控制是否對工作站容器套用功能：
+  # 熔爐、高爐、煙燻爐、釀造台、工作台等
+  includeWorkstationContainers: true
+
+  # 顯示除錯訊息
+  # 啟用後會在控制台顯示儲物箱模組的詳細操作記錄
+  # 建議除錯時開啟，正常運行時關閉
+  showDebugMessages: false
+
+  # 啟用安全檢查
+  # 重要：啟用後會對危險操作進行安全檢查
+  # 例如：防止在末地開啟充能的重生錨（會爆炸）
+  # 注意：可能影響性能，建議關閉
+  enableSafetyCheck: false
+
+  # 自定義容器類型
+  # 可以手動添加其他需要支援的容器類型
+  # 格式：使用 Minecraft 材質名稱，全部大寫
+  # 例如：["CHEST", "BARREL", "SHULKER_BOX"]
+  customChestTypes: []
+
+# ==================== 種子查看詳細配置 ====================
+
+seed:
+  # 是否啟用種子查看功能
+  enabled: true
+
+  # 消息配置
+  message-prefix: "&6&l[種子] &f"
+  message-format: |
+    &6世界: &e{world}
+    &6種子碼: &a&l{seed}
+
+  # 顯示選項
+  show-hex: true
+  show-binary: false
+  show-tip: true
+
+  # 日誌選項
+  log-usage: true
+  log-level: "INFO"
+
+  # 功能選項
+  allow-console: true
+  allow-view-all-worlds: false
+  broadcast-to-all: false
+  require-permission: false
+  player-only: false
+
+# ==================== 電梯模組詳細設定 ====================
+
+elevator:
+  # 模組啟用狀態
+  enabled: true
+
+  # 搜尋範圍
+  range: 10
+
+  # 冷卻時間（毫秒）
+  cooldown: 500
+
+  # 音效啟用
+  sound-enabled: true
+
+  # 跳躍上樓功能
+  jump-up: true
+
+  # 蹲下下樓功能
+  sneak-down: true
+
+  # 蹲下左鍵顯示樓層
+  sneak-click-info: true
+
+  # 傳送時顯示訊息
+  show-message: true
+
+  # 安全檢查
+  safety-check: true
+
+  # 告示牌標誌
+  sign-identifier: "[電梯]"
+
+  support-platforms: true
+
+  platform-min-size: 1
+
+  platform-max-size: 3
+
+
+# ==================== TPS系統設定 ====================
+
+tps:
+  enable: true
+
+  detailed-info: true # 显示详细性能信息
+
+  show-warning: false # TPS低时显示警告
+
+  low-tps-threshold: 15 # 低TPS阈值
+
+  high-tps-threshold: 18 # 高TPS阈值
+
+  command-permission: kuku.command.tps
+
+  auto-broadcast: false
+
+  broadcast-interval: 300
+
+  broadcast-tps-threshold: 10
+
+
+# ==================== 經驗值系統設定 ====================
+
+exp:
+  enabled: true
+
+  max-level-per-action: 1000
+
+  show-particles: true
+
+  play-sounds: true
+
+  allow-special-commands: true
+
+  message-prefix: "§6§l[經驗系統] §f"
+
+# ==================== 清理掉落物模組詳細設定 ====================
+
+clearlag:
+  enabled: true              # 模組啟用狀態：主開關
+  clean-interval: 900        # 清理間隔：秒（5分鐘）
+  countdown-time: 10         # 倒計時時間：秒（清理前倒數）
+  show-actionbar: true       # 顯示動作欄：在物品欄上方顯示倒計時
+  broadcast-messages: true   # 廣播訊息：清理時發送遊戲內廣播
+
+  # 🔒 物品保護設定
+  protection:
+    protect-named-items: false      # 保護命名物品：不清理有自定義名稱的物品
+    protect-enchanted-items: false  # 保護附魔物品：不清理有附魔的物品
+    min-items-to-clear: 0           # 最小清理數量：物品數量少於此值則不清理
+    max-clear-per-cycle: 0          # 每輪最大清理量：0表示無限制
+
+  # 💬 消息格式設定
+  messages:
+    clearlag-prefix: "|系統| 垃圾車: "  # 清理掉落物消息前綴
+  colors:
+    prefix-system: "&6"      # 系統前綴顏色
+    prefix-module: "&2"      # 模塊名稱顏色
+    info: "&e"              # 信息消息顏色
+    success: "&a"           # 成功消息顏色
+    warning: "&c"           # 警告消息顏色
+    error: "&4"             # 錯誤消息顏色
+
+# ==================== 界伏盒詳細設定 ====================
+
+easybox:
+  # 模組啟用狀態
+  enabled: true
+
+  # Lore顯示設定
+  # 是否在物品Lore中顯示界伏盒內容
+  lore-enabled: true
+
+  # Lore標題格式
+  lore-title: "&7[ &e內容 &7] &8(%total% 個物品)"
+
+  # 物品顯示格式
+  lore-format: " &7• %item% &8x%amount%"
+
+  # 最大顯示行數
+  max-lore-lines: 6
+
+  # 空界伏盒顯示訊息
+  empty-message: " &7• 空的"
+
+  # 庫存標題
+  inventory-title: "&8[&6界伏盒&8]"
+
+# ==================== 右鍵採收詳細設定 ====================
+
+rightclick:
+  # 模組啟用狀態
+  enabled: true
+
+# ==================== Discord模組詳細設定 ====================
+
+discord:
+  # 模組啟用狀態
+  enabled: true
+
+  # Discord Bot設定
+  bot-token: "YOUR_BOT_TOKEN_HERE"
+  channel-id: "YOUR_CHANNEL_ID_HERE"
+
+  # 功能設定
+  enable-message-relay: true
+  enable-status-updates: true
+  enable-player-join-leave: true
+
+  # 消息格式
+  join-message: "**%player%** 加入了遊戲"
+  leave-message: "**%player%** 離開了遊戲"
+
+# ==================== helpGUI設定 ====================
+
+helpgui:
+  enabled: true
+
+# ==================== 備份系統詳細設定 ====================
+
+backups:
+  # 模組啟用狀態
+  enabled: true
+
+  # 權限設定
+  permission: "kuku.backups.use"
+
+  # 自動備份設定
+  auto:
+    enabled: true
+    interval: 30
+
+  # 備份內容設定
+  folders:
+    - "world"
+    - "world_nether"
+    - "world_the_end"
+    - "plugins"
+    - "server.properties"
+    - "bukkit.yml"
+    - "spigot.yml"
+    - "paper.yml"
+    - "ops.json"
+    - "whitelist.json"
+    - "banned-ips.json"
+    - "banned-players.json"
+
+  # 排除項目設定
+  excludes:
+    - "world/playerdata/*.dat_old"
+    - "world/stats/*.json_old"
+    - "world/*.tmp"
+    - "world/session.lock"  # 排除會話鎖定檔案
+    - "world/*/session.lock"
+    - "plugins/**/*.jar"
+    - "logs"
+
+  # 跳過鎖定檔案設定
+  skip-locked-files: true  # 是否跳過被鎖定的檔案
+  retry-locked-files: 2    # 重試次數（0表示不重試）
+  retry-delay: 1000        # 重試延遲（毫秒）
+
+  # 壓縮格式設定
+  compression: "zip"
+
+  # 備份檔案管理
+  max-count: 50
+  keep-days: 30
+  save-path: "backups"  # 相對於插件資料目錄
+  prefix: "backup"
+
+  # 其他設定
+  on-stop: true
+  notify: true
+
+  # 除錯模式
+  debug: false
+
+# ==================== 指令權限設定 ====================
+
+commands:
+  nc:
+    enabled: true
+    permission: "kuku.command.nc"
+  discord:
+    permission: "kuku.command.discord"
+
+# ============================================
+#          設定檔案結束 - 儲存並重載插件
+# ============================================

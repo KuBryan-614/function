@@ -1,0 +1,38 @@
+# 半砖单格破坏 模块配置
+
+# 是否启用本模块
+enabled: true
+
+# 是否在破坏时显示动作栏提示
+show-message: true
+
+# 是否播放破坏粒子效果和声音
+play-effects: true
+
+# 是否掉落半砖物品（创造模式不会掉落）
+drop-items: true
+
+# 射线追踪判断距离（格）。距离过大会有性能开销，过小可能无法准确判断
+raytrace-distance: 6.0
+
+# 破坏时产生的粒子数量
+particle-count: 20
+
+# 排除的半砖（或其他方块）列表，支持 Material 枚举名
+# 在此列表中的方块将不会被本模块处理
+excluded-materials:
+  - BARRIER
+  - BEDROCK
+  - COMMAND_BLOCK
+
+# 支持的单层半砖类型列表
+# 如果列表为空 []，则默认处理所有半砖（除非在上方被排除）
+# 如果列表非空，则只处理列表中的半砖
+supported-slabs: []
+
+# 权限设置
+permissions:
+  # 是否启用权限检查
+  enabled: false
+  # 使用本功能所需的基础权限
+  required: 'kuku.halfslab.use'

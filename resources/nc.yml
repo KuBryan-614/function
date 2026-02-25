@@ -1,0 +1,36 @@
+# KukuFunction - 座標計算模塊配置文件
+# 版本: 1.21.10
+
+# 是否啟用整個座標計算模塊
+enabled: true
+
+# 指令冷卻時間（秒）
+# 防止玩家過度使用指令造成伺服器負擔
+cooldown: 1.0
+
+# 座標顯示精度（小數位數）
+show-precision: 2
+
+# 顯示設置
+display:
+  use-prefix: true                    # 是否使用前綴
+  prefix: "§8|§6系統§8| §f"           # 消息前綴
+  separator: "§7────────────────"     # 分隔線
+  show-hints: true                    # 是否顯示提示信息
+
+# 消息設置
+messages:
+  main-to-nether: "§a地獄座標計算結果:"          # 主世界轉地獄時標題
+  nether-to-main: "§a主世界座標計算結果:"        # 地獄轉主世界時標題
+  main-coords: "§e現實世界座標 §7(主世界)"       # 主世界座標標籤
+  nether-coords: "§c地獄座標 §7(對應位置)"       # 地獄座標標籤
+  ratio-hint: "§7提示: 主世界1格 = 地獄8格"     # 比例提示
+  cooldown: "§c請等待 {seconds} 秒後再使用此指令" # 冷卻中消息
+  no-permission: "§c你沒有權限使用此指令"        # 無權限消息
+  console-error: "§c只有玩家可以使用此指令"      # 控制台使用錯誤
+  invalid-world: "§c此世界無法計算地獄座標!"     # 無效世界錯誤
+
+# 警告和提示
+warnings:
+  low-y-level: "§6⚠ 注意: 現實世界Y座標較低，地獄中可能遇到基岩層!"       # 低Y座標警告
+  safe-y-level: "§6ℹ 提示: 在地獄中建議保持在Y=30以上以避開熔岩湖"       # 安全高度提示

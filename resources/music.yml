@@ -1,0 +1,18 @@
+private:
+  default-volume: 1.0
+
+public:
+  radius: 10
+
+musics:
+  calm:
+    display: "寧靜旋律"
+    sound: BLOCK_NOTE_BLOCK_HARP
+    tempo: 10
+    notes: [0, 2, 4, 7]
+
+  happy:
+    display: "歡樂節奏"
+    sound: BLOCK_NOTE_BLOCK_BELL
+    tempo: 8
+    notes: [0, 4, 7, 12]
